@@ -37,7 +37,10 @@ function HomeScreen() {
       <TouchableOpacity onPress={()=>{dispatch(incrementByAmount(10))}}>
         <Text>+10</Text>
       </TouchableOpacity>
-      {/* <IconLeftArrow/> */}
+      <View style={{width: 200, height: 200, backgroundColor: "yellow"}}>
+        <IconLeftArrow  color="green" width={100} height={200}/>
+
+      </View>
     </SafeAreaView>
   );
 }
