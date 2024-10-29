@@ -252,3 +252,10 @@ fastlane/*.env
 iOSInjectionProject/
 
 src/configs/ENV.ts
+vendor
+
+ios/Pods
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
