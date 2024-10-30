@@ -17,6 +17,7 @@ export const PostsList = () => {
   const postId = "1"
   const postFound = useAppSelector(state => selectPostById(state, postId))
 
+  console.log("tytn ==== posts: ", posts)
   const dispatch = useAppDispatch();
 
   const [content, setContent] = useState('');
@@ -58,12 +59,7 @@ export const PostsList = () => {
       />
       <TouchableOpacity
         onPress={() => {
-          const newPost: Post = {
-            id: nanoid(),
-            title: 'tytn',
-            content,
-          };
-          dispatch(postAdded(newPost));
+          dispatch(postAdded("tytn", content));
         }}>
         <Text>Submit</Text>
       </TouchableOpacity>
