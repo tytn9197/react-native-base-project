@@ -12,6 +12,7 @@ import IconLeftArrow from './src/assets/icons/ic_left_arrow.svg';
 import { Provider } from 'react-redux'
 import { store } from './src/redux/store';
 import HomeScreen from './src/screens/HomeScreen';
+import { PostsList } from './src/screens/post-list/PostList';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +21,7 @@ function App(): React.JSX.Element {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Home" component={PostsList} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
