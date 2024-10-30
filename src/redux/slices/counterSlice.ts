@@ -1,10 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
+
+// Define the TS type for the counter slice's state
+export interface ICounterState {
+  value: number
+  status: 'idle' | 'loading' | 'failed'
+}
+
+// Define the initial value for the slice state
+const initialState: ICounterState = {
+  value: 0,
+  status: 'idle'
+}
 
 export const counterSlice = createSlice({
   name: 'counter',
-  initialState: {
-    value: 0
-  },
+  initialState,
   reducers: {
     increment: state => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -16,7 +27,7 @@ export const counterSlice = createSlice({
     decrement: state => {
       state.value -= 1
     },
-    incrementByAmount: (state, action) => {
+    incrementByAmount: (state, action: PayloadAction<number>) => {
       state.value += action.payload
     }
   }
