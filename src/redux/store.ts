@@ -1,11 +1,12 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
 import counterReducer from './slices/counterSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-  }
+  },
 })
 
 // Infer the type of `store`
@@ -20,3 +21,7 @@ export type AppThunk<ThunkReturnType = void> = ThunkAction<
   unknown,
   Action
 >
+
+// Use throughout your app instead of plain `useDispatch` and `useSelector`
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+export const useAppSelector = useSelector.withTypes<RootState>()

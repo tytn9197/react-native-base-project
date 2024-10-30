@@ -1,13 +1,13 @@
 import React from 'react';
 import {SafeAreaView, TouchableOpacity, View, Text} from 'react-native';
-import {decrement, ICounterState, increment, incrementByAmount} from '../redux/slices/counterSlice';
-import {useDispatch, useSelector} from 'react-redux';
-import { RootState } from '../redux/store';
+import {decrement, increment, incrementByAmount, selectCount, selectStatus} from '../redux/slices/counterSlice';
+import { useAppDispatch, useAppSelector } from '../redux/store';
 
 const HomeScreen = () => {
-  const count = useSelector((state: RootState)=> state.counter.value);
+  const count = useAppSelector(state => state.counter.value);
+  const status = useAppSelector(selectStatus);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <SafeAreaView

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { RootState } from '../store'
 
 // Define the TS type for the counter slice's state
 export interface ICounterState {
@@ -30,10 +31,16 @@ export const counterSlice = createSlice({
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.value += action.payload
     }
-  }
+  },
 })
 
 // Action creators are generated for each case reducer function
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
 
 export default counterSlice.reducer
+
+// Selector functions allows us to select a value from the Redux root state.
+// Selectors can also be defined inline in the `useSelector` call
+// in a component, or inside the `createSlice.selectors` field.
+export const selectCount = (state: RootState) => state.counter.value
+export const selectStatus = (state: RootState) => state.counter.status
