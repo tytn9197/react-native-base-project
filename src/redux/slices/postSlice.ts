@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { RootState } from '../store'
 
 // Define a TS type for the data we'll be using
 export interface Post {
@@ -23,11 +24,16 @@ const postsSlice = createSlice({
       // safe to do here because `createSlice` uses Immer inside.
       state.push(action.payload)
     }
+  },
+  selectors: {
+    selectPostById: (postState ,postId: string) => {
+        return postState.find(post => post.id === postId)
+    }
   }
 })
 
 // Export the auto-generated action creator with the same name
 export const { postAdded } = postsSlice.actions
-
+export const { selectPostById } = postsSlice.selectors
 // Export the generated reducer function
-export default postsSlice.reducer
+export default postsSlice

@@ -7,12 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Post, postAdded} from '../../redux/slices/postSlice';
+import {Post, postAdded, selectPostById} from '../../redux/slices/postSlice';
 import {nanoid} from '@reduxjs/toolkit';
+import { useNavigation } from '@react-navigation/native';
 
 export const PostsList = () => {
   // Select the `state.posts` value from the store into the component
   const posts = useAppSelector(state => state.posts);
+  const postId = "1"
+  const postFound = useAppSelector(state => selectPostById(state, postId))
 
   const dispatch = useAppDispatch();
 
@@ -64,6 +67,7 @@ export const PostsList = () => {
         }}>
         <Text>Submit</Text>
       </TouchableOpacity>
+      <Text>{`Post founded Content: ${postFound?.content}`}</Text>
     </SafeAreaView>
   );
 };
