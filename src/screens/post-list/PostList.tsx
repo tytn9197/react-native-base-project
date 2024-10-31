@@ -10,6 +10,7 @@ import {
 import {Post, postAdded, selectPostById} from '../../redux/slices/postSlice';
 import {nanoid} from '@reduxjs/toolkit';
 import { useNavigation } from '@react-navigation/native';
+import { APP_CONST } from '../../contants/APP_CONSTANTS';
 
 export const PostsList = () => {
   // Select the `state.posts` value from the store into the component
@@ -17,13 +18,16 @@ export const PostsList = () => {
   const postId = "1"
   const postFound = useAppSelector(state => selectPostById(state, postId))
 
-  console.log("tytn ==== posts: ", posts)
   const dispatch = useAppDispatch();
+  const navigation = useNavigation<any>()
 
   const [content, setContent] = useState('');
 
   const renderedPosts = posts.map(post => (
-    <View
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate(APP_CONST.NAV.DETAILS, {id: post.id})
+      }}
       style={{
         width: '100%',
         alignItems: 'center',
@@ -36,7 +40,7 @@ export const PostsList = () => {
       key={post.id}>
       <Text>{`Title: ${post.title}`}</Text>
       <Text>{`Content: ${post.content}`}</Text>
-    </View>
+    </TouchableOpacity>
   ));
 
   return (

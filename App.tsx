@@ -13,6 +13,8 @@ import { Provider } from 'react-redux'
 import { store } from './src/redux/store';
 import HomeScreen from './src/screens/HomeScreen';
 import { PostsList } from './src/screens/post-list/PostList';
+import { APP_CONST } from './src/contants/APP_CONSTANTS';
+import PostDetails from './src/screens/post-details/PostDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +23,8 @@ function App(): React.JSX.Element {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={PostsList} />
+          <Stack.Screen name={APP_CONST.NAV.HOME} component={PostsList} />
+          <Stack.Screen name={APP_CONST.NAV.DETAILS} component={PostDetails} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
