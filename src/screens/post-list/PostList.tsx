@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {useAppDispatch, useAppSelector} from '../../hooks/AppHooks';
 import {
   SafeAreaView,
   Text,
@@ -7,10 +6,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Post, postAdded, selectPostById} from '../../redux/slices/postSlice';
 import {nanoid} from '@reduxjs/toolkit';
 import { useNavigation } from '@react-navigation/native';
-import { APP_CONST } from '../../contants/APP_CONSTANTS';
+import { useAppDispatch, useAppSelector } from '@hooks/AppHooks';
+import { postAdded, selectPostById } from '@slices/postSlice';
+import { APP_CONST } from '@constants/APP_CONSTANTS';
 
 export const PostsList = () => {
   // Select the `state.posts` value from the store into the component

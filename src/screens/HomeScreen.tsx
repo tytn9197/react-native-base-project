@@ -1,7 +1,7 @@
+import { useAppDispatch, useAppSelector } from '@hooks/AppHooks';
+import { decrement, increment, incrementByAmount, selectStatus } from '@slices/counterSlice';
 import React from 'react';
 import {SafeAreaView, TouchableOpacity, View, Text} from 'react-native';
-import {decrement, increment, incrementByAmount, selectCount, selectStatus} from '../redux/slices/counterSlice';
-import { useAppDispatch, useAppSelector } from '../hooks/AppHooks';
 
 const HomeScreen = () => {
   const count = useAppSelector(state => state.counter.value);

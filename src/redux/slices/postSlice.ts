@@ -1,5 +1,4 @@
 import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from '../store'
 
 // Define a TS type for the data we'll be using
 export interface Post {

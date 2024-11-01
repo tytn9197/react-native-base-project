@@ -1,10 +1,10 @@
 import React from 'react';
-import {APP_CONST} from '../contants/APP_CONSTANTS';
-import PostDetails from '../screens/post-details/PostDetails';
-import {PostsList} from '../screens/post-list/PostList';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Text} from 'react-native';
+import { APP_CONST } from '@constants/APP_CONSTANTS';
+import { PostsList } from '@screens/post-list/PostList';
+import PostDetails from '@screens/post-details/PostDetails';
 
 interface RootNavigatorProps {}
 
