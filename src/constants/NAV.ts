@@ -1,19 +1,18 @@
 export const NAV = {
   // root navigator
   // authentication navigator
-  SIGN_IN: 'SIGN_IN',
-  SIGN_UP: 'SIGN_UP',
+  SIGN_IN: 'Sign in',
+  SIGN_UP: 'Sign up',
 
   // authenticated navigator
-  DETAILS: 'DETAILS',
-  HOME: 'HOME',
+  DETAILS: 'Details',
   MY_DRAWER: {
-    SELF: 'MY_DRAWER',
-    POST_LIST: 'POST_LIST_DRAWER',
-    USER: 'USER',
+    SELF: 'My Drawer',
+    POST_LIST: 'Post List',
+    USER: 'User',
   },
 
   // common screens
-  ABOUT: "ABOUT",
-  HELP: "HELP"
+  ABOUT: "About",
+  HELP: "Help"
 };
