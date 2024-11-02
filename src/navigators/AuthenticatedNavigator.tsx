@@ -14,7 +14,7 @@ const renderAuthenticatedNavigator = (): React.JSX.Element => {
         component={DrawerNavigator}
         options={{headerShown: false}}
       />
-      <Stack.Screen name={NAV.DETAILS} component={PostDetails} />
+      <Stack.Screen name={NAV.POST_DETAILS} component={PostDetails} options={{headerBackTitleVisible: false}}/>
     </>
   );
 };

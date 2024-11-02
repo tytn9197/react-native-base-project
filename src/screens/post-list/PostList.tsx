@@ -26,7 +26,7 @@ export const PostsList = () => {
   const renderedPosts = posts.map(post => (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate(NAV.DETAILS, {id: post.id})
+        navigation.navigate(NAV.POST_DETAILS, {id: post.id})
       }}
       style={{
         width: '100%',
