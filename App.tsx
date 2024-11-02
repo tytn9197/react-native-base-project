@@ -19,7 +19,7 @@ const App = (): React.JSX.Element => {
   const scheme = useColorScheme();
   return (
     <Provider store={store}>
-      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <NavigationContainer theme={scheme === 'dark' ? DefaultTheme : DefaultTheme}>
         <RootNavigator />
       </NavigationContainer>
     </Provider>
