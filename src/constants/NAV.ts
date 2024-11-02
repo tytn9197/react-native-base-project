@@ -5,10 +5,13 @@ export const NAV = {
   SIGN_UP: 'Sign up',
 
   // authenticated navigator
-  DETAILS: 'Details',
+  POST_DETAILS: 'Post Details',
   MY_DRAWER: {
     SELF: 'My Drawer',
-    POST_LIST: 'Post List',
+    POST: {
+      SELF: "Post List",
+      POST_LIST: 'Post List stack',
+    },
     USER: 'User',
   },
 
