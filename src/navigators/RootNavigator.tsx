@@ -1,43 +1,30 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {Text} from 'react-native';
-import { APP_CONST } from '@constants/APP_CONSTANTS';
-import { PostsList } from '@screens/post-list/PostList';
-import PostDetails from '@screens/post-details/PostDetails';
+import {useAppSelector} from '@hooks/AppHooks';
+import Help from '@screens/help/Help';
+import AboutScreen from '@screens/about-screen/AboutScreen';
+import {NAV} from '@constants/NAV';
+import renderAuthenticatedNavigator from '@navigators/AuthenticatedNavigator';
+import renderAuthenticationNavigator from '@navigators/AuthenticationNavigator';
 
 interface RootNavigatorProps {}
 
 const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
 
-const Abc = () => {
-  return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name={APP_CONST.NAV.HOME} component={PostsList} />
-      {/* <Stack.Screen name={APP_CONST.NAV.DETAILS} component={PostDetails} /> */}
-    </Stack.Navigator>
-  );
-};
+const RootNavigator = (props: RootNavigatorProps): React.JSX.Element => {
+  const isSignedIn = useAppSelector(state => state.login.isSignedIn);
 
-const MyDrawer = () => {
   return (
-    <Drawer.Navigator initialRouteName="abc">
-      <Drawer.Screen name="abc" component={Abc} />
-      <Drawer.Screen
-        name="zzz"
-        component={() => {
-          return <Text>zzz</Text>;
-        }}
-      />
-    </Drawer.Navigator>
-  );
-};
-const RootNavigator = (props: RootNavigatorProps) => {
-  return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name={"drawer"} component={MyDrawer} />
-      <Stack.Screen name={APP_CONST.NAV.DETAILS} component={PostDetails} />
+    <Stack.Navigator>
+      {/* follow this document - https://reactnavigation.org/docs/auth-flow */}
+      {isSignedIn
+        ? renderAuthenticatedNavigator()
+        : renderAuthenticationNavigator()}
+      {/* navigation key to re-render the stacks - https://reactnavigation.org/docs/group/#navigationkey */}
+      <Stack.Group navigationKey={isSignedIn ? 'user' : 'guest'}>
+        <Stack.Screen name={NAV.HELP} component={Help} />
+        <Stack.Screen name={NAV.ABOUT} component={AboutScreen} />
+      </Stack.Group>
     </Stack.Navigator>
   );
 };

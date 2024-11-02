@@ -10,7 +10,7 @@ import {nanoid} from '@reduxjs/toolkit';
 import { useNavigation } from '@react-navigation/native';
 import { useAppDispatch, useAppSelector } from '@hooks/AppHooks';
 import { postAdded, selectPostById } from '@slices/postSlice';
-import { APP_CONST } from '@constants/APP_CONSTANTS';
+import { NAV } from '@constants/NAV';
 
 export const PostsList = () => {
   // Select the `state.posts` value from the store into the component
@@ -26,7 +26,7 @@ export const PostsList = () => {
   const renderedPosts = posts.map(post => (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate(APP_CONST.NAV.DETAILS, {id: post.id})
+        navigation.navigate(NAV.DETAILS, {id: post.id})
       }}
       style={{
         width: '100%',

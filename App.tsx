@@ -5,19 +5,25 @@
  * @format
  */
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import { Provider } from 'react-redux'
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
+import {Provider} from 'react-redux';
+import {store} from '@redux/store';
+import {useColorScheme} from 'react-native';
 import RootNavigator from '@navigators/RootNavigator';
-import { store } from '@redux/store';
 
-function App(): React.JSX.Element {
+const App = (): React.JSX.Element => {
+  const scheme = useColorScheme();
   return (
     <Provider store={store}>
-      <NavigationContainer>
+      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
         <RootNavigator />
       </NavigationContainer>
     </Provider>
   );
-}
+};
 
 export default App;
