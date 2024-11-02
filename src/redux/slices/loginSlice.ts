@@ -15,9 +15,12 @@ export const loginSlice = createSlice({
     login: state => {
       state.isSignedIn = true;
     },
+    logout: state => {
+      state.isSignedIn = false;
+    },
   },
 });
 
-export const {login} = loginSlice.actions;
+export const {login, logout} = loginSlice.actions;
 
 export default loginSlice;
