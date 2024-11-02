@@ -1,8 +1,17 @@
 import React from 'react';
 import {NAV} from '@constants/NAV';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+  DrawerItem,
+  DrawerContentComponentProps,
+} from '@react-navigation/drawer';
 import {Text} from 'react-native';
 import PostNavigator from '@navigators/PostNavigator';
+import {useAppDispatch} from '@hooks/AppHooks';
+import {logout} from '@slices/loginSlice';
+import {useNavigation} from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
 
@@ -10,10 +19,24 @@ const Abc = () => {
   return <Text>zzz</Text>;
 };
 
-const DrawerNavigator = (): React.JSX.Element => {
+const CustomDrawerContent = (props: DrawerContentComponentProps) => {
+  const navigation = useNavigation<any>();
+  const dispatch = useAppDispatch();
   return (
-    <Drawer.Navigator initialRouteName={NAV.MY_DRAWER.POST_LIST}>
-      <Drawer.Screen name={NAV.MY_DRAWER.POST_LIST} component={PostNavigator} />
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
+      <DrawerItem label="Help" onPress={() => navigation.navigate(NAV.HELP)} />
+      <DrawerItem label="Log out" onPress={() => dispatch(logout())} />
+    </DrawerContentScrollView>
+  );
+};
+
+const DrawerNavigator = () => {
+  return (
+    <Drawer.Navigator
+      initialRouteName={NAV.MY_DRAWER.POST.SELF}
+      drawerContent={props => <CustomDrawerContent {...props} />}>
+      <Drawer.Screen name={NAV.MY_DRAWER.POST.SELF} component={PostNavigator} />
       <Drawer.Screen name={NAV.MY_DRAWER.USER} component={Abc} />
     </Drawer.Navigator>
   );
