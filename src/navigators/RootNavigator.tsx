@@ -1,5 +1,5 @@
 import React from 'react';
-import {createNativeStackNavigator, NativeStackScreenProps} from '@react-navigation/native-stack';
+import {createNativeStackNavigator, NativeStackScreenProps, NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAppSelector} from '@hooks/AppHooks';
 import Help from '@screens/help/Help';
 import AboutScreen from '@screens/about-screen/AboutScreen';
@@ -18,6 +18,11 @@ export type RootStackParamList = {
 };
 
 export type PostDetailsProps = NativeStackScreenProps<RootStackParamList, 'Post Details'>;
+
+export type PostDetailsScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'Post Details'
+>;
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
