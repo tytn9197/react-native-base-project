@@ -1,5 +1,5 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createNativeStackNavigator, NativeStackScreenProps} from '@react-navigation/native-stack';
 import {useAppSelector} from '@hooks/AppHooks';
 import Help from '@screens/help/Help';
 import AboutScreen from '@screens/about-screen/AboutScreen';
@@ -16,6 +16,8 @@ export type RootStackParamList = {
   'Sign in': undefined;
   'Sign up': undefined;
 };
+
+export type PostDetailsProps = NativeStackScreenProps<RootStackParamList, 'Post Details'>;
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 

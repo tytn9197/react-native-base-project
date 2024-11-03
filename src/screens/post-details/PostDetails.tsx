@@ -1,7 +1,8 @@
+import { PostDetailsProps } from '@navigators/RootNavigator';
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
 
-const PostDetails = (props: any) => {
+const PostDetails = (props: PostDetailsProps) => {
   const {id} = props.route.params;
 
   return (
