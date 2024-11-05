@@ -9,7 +9,7 @@ const initialState: ILoginState = {
 };
 
 export const loginSlice = createSlice({
-  name: 'counter',
+  name: 'login',
   initialState,
   reducers: {
     login: state => {
@@ -18,9 +18,12 @@ export const loginSlice = createSlice({
     logout: state => {
       state.isSignedIn = false;
     },
+    switchValue: state => {
+      state.isSignedIn = !state.isSignedIn
+    }
   },
 });
 
-export const {login, logout} = loginSlice.actions;
+export const {login, logout, switchValue } = loginSlice.actions;
 
 export default loginSlice;
