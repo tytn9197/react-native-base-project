@@ -10,8 +10,14 @@ import {
 import {Text} from 'react-native';
 import PostNavigator from '@navigators/PostNavigator';
 import {useAppDispatch} from '@hooks/AppHooks';
-import {logout} from '@slices/loginSlice';
+import {switchValue} from '@slices/loginSlice';
 import {useNavigation} from '@react-navigation/native';
+
+type DrawerParamList = {
+  'Post List': undefined;
+  Profile: {uerId: string};
+  Feed: {sort: 'latest' | 'top'} | undefined;
+};
 
 const Drawer = createDrawerNavigator();
 
@@ -20,13 +26,20 @@ const Abc = () => {
 };
 
 const CustomDrawerContent = (props: DrawerContentComponentProps) => {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<DrawerContentComponentProps['navigation']>();
   const dispatch = useAppDispatch();
+
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
-      <DrawerItem label="Help" onPress={() => navigation.navigate(NAV.HELP)} />
-      <DrawerItem label="Log out" onPress={() => dispatch(logout())} />
+      <DrawerItem label="Help" onPress={() => navigation.navigate('Help')} />
+      <DrawerItem
+        label="Log out"
+        onPress={() => {
+          props.navigation.closeDrawer();
+          dispatch(switchValue());
+        }}
+      />
     </DrawerContentScrollView>
   );
 };
@@ -35,7 +48,8 @@ const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
       initialRouteName={NAV.MY_DRAWER.POST.SELF}
-      drawerContent={props => <CustomDrawerContent {...props} />}>
+      drawerContent={props => <CustomDrawerContent {...props} />}
+    >
       <Drawer.Screen name={NAV.MY_DRAWER.POST.SELF} component={PostNavigator} />
       <Drawer.Screen name={NAV.MY_DRAWER.USER} component={Abc} />
     </Drawer.Navigator>
