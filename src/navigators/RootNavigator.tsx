@@ -40,19 +40,20 @@ const RootNavigator = (): React.JSX.Element => {
     <RootStack.Navigator>
       {/*
         follow this document - https://reactnavigation.org/docs/auth-flow 
-        fix later - cannot remove stacks when change state
+        fix bug change state on ANDROID -> crash app by delete fun startTransitionRecursive in Screen.kt
       */}
-      {/* {isSignedIn ? (
+      {isSignedIn ? (
         <>
           <RootStack.Screen
             name={'My Drawer'}
             component={DrawerNavigator}
             options={{headerShown: false}}
+            
           />
           <RootStack.Screen
             name={'Post Details'}
             component={PostDetails}
-            options={{headerBackTitleVisible: false}}
+            options={{headerBackButtonDisplayMode: 'minimal'}}
           />
         </>
       ) : (
@@ -60,17 +61,7 @@ const RootNavigator = (): React.JSX.Element => {
           <RootStack.Screen name={'Sign in'} component={SignIn} />
           <RootStack.Screen name={'Sign up'} component={SignUp} />
         </>
-      )} */}
-      <RootStack.Screen
-        name={'My Drawer'}
-        component={DrawerNavigator}
-        options={{headerShown: false}}
-      />
-      <RootStack.Screen
-        name={'Post Details'}
-        component={PostDetails}
-        options={{headerBackTitleVisible: false}}
-      />
+      )}
       {/* navigation key to re-render the stacks - https://reactnavigation.org/docs/group/#navigationkey */}
       <RootStack.Group navigationKey={isSignedIn ? 'user' : 'guest'}>
         <RootStack.Screen name={'Help'} component={Help} />
