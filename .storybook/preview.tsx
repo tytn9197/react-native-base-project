@@ -1,4 +1,6 @@
-import type { Preview } from '@storybook/react';
+import type {Preview} from '@storybook/react';
+import React from 'react';
+import {SafeAreaView} from 'react-native';
 
 const preview: Preview = {
   parameters: {
@@ -9,6 +11,14 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    Story => (
+      <SafeAreaView style={{flex: 1, backgroundColor: "red"}}>
+        {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+        <Story />
+      </SafeAreaView>
+    ),
+  ],
 };
 
 export default preview;
