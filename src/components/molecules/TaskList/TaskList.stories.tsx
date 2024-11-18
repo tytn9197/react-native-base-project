@@ -79,7 +79,7 @@ export const Default = {
       { ...TaskStory.args.task, id: '6', title: 'Task 6' },
     ],
   },
-};
+} satisfies Meta<typeof TaskList>;
 
 export const WithPinnedTasks = {
   decorators: [
@@ -109,7 +109,7 @@ export const WithPinnedTasks = {
       { id: '6', title: 'Task 6 (pinned)', state: 'TASK_PINNED' },
     ],
   },
-};
+} satisfies Meta<typeof TaskList>;
 
 export const Loading = {
   decorators: [
@@ -128,7 +128,7 @@ export const Loading = {
     tasks: [],
     loading: true,
   },
-};
+} satisfies Meta<typeof TaskList>;
 
 export const Empty = {
   decorators: [
@@ -149,4 +149,4 @@ export const Empty = {
     ...Loading.args,
     loading: false,
   },
-};
+} satisfies Meta<typeof TaskList>;
