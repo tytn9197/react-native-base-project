@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { View } from 'react-native';
 
 const meta = {
-  title: 'Task',
+  title: 'Atoms/Task',
   component: Task,
   argTypes: {
     onPinTask: { action: 'onPinTask' },

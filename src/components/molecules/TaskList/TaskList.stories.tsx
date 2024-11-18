@@ -48,7 +48,7 @@ const Mockstore = ({ taskboxState, children }: {taskboxState: {tasks: ITask[],st
 
 const meta = {
   component: TaskList,
-  title: 'TaskList',
+  title: 'Molecules/TaskList',
   decorators: [
     (Story) => (
       <View style={{ padding: 42, flex: 1 }}>

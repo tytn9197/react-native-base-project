@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MyButton } from './Button';
 
 const meta = {
-  title: 'MyButton',
+  title: 'Atoms/MyButton',
   component: MyButton,
   argTypes: {
     onPress: { action: 'pressed the button' },
