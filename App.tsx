@@ -14,6 +14,7 @@ import {Provider} from 'react-redux';
 import {store} from '#redux/store';
 import {useColorScheme} from 'react-native';
 import RootNavigator from '#navigators/RootNavigator';
+import "./global.css"
 
 const App = (): React.JSX.Element => {
   const scheme = useColorScheme();
