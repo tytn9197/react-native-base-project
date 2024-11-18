@@ -13,7 +13,7 @@ const preview: Preview = {
   },
   decorators: [
     Story => (
-      <SafeAreaView style={{flex: 1, backgroundColor: "red"}}>
+      <SafeAreaView style={{flex: 1, padding: 20}}>
         {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
         <Story />
       </SafeAreaView>
