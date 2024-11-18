@@ -3,6 +3,7 @@ import usersSlice from '#screens/users/userSlice'
 import counterSlice from '#slices/counterSlice'
 import loginSlice from '#slices/loginSlice'
 import postSlice from '#slices/postSlice'
+import TasksSlice from '#slices/taskSlice'
 
 
 export const store = configureStore({
@@ -10,7 +11,8 @@ export const store = configureStore({
     login: loginSlice.reducer,
     counter: counterSlice.reducer,
     posts: postSlice.reducer,
-    users: usersSlice.reducer
+    users: usersSlice.reducer,
+    taskbox: TasksSlice.reducer
   },
 })
 
