@@ -1,10 +1,10 @@
-import {useAppDispatch} from '@hooks/AppHooks';
+import {useAppDispatch} from '#hooks/AppHooks';
 import {Theme, useNavigation, useTheme} from '@react-navigation/native';
-import {login} from '@slices/loginSlice';
+import {login} from '#slices/loginSlice';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import SignInStyle from './SignInStyle';
-import { NAV } from '@constants/NAV';
+import { NAV } from '#constants/NAV';
 
 const SignIn = (): React.JSX.Element => {
   const dispatch = useAppDispatch();

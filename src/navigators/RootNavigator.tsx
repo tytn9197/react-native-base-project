@@ -4,13 +4,13 @@ import {
   NativeStackScreenProps,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
-import {useAppSelector} from '@hooks/AppHooks';
-import Help from '@screens/help/Help';
-import AboutScreen from '@screens/about-screen/AboutScreen';
-import DrawerNavigator from '@navigators/DrawerNavigator';
-import PostDetails from '@screens/post-details/PostDetails';
-import SignIn from '@screens/sign-in/SignIn';
-import SignUp from '@screens/sign-up/SignUp';
+import {useAppSelector} from '#hooks/AppHooks';
+import Help from '#screens/help/Help';
+import AboutScreen from '#screens/about-screen/AboutScreen';
+import DrawerNavigator from '#navigators/DrawerNavigator';
+import PostDetails from '#screens/post-details/PostDetails';
+import SignIn from '#screens/sign-in/SignIn';
+import SignUp from '#screens/sign-up/SignUp';
 
 export type RootStackParamList = {
   Help: undefined;

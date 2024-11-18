@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '@hooks/AppHooks';
-import { decrement, increment, incrementByAmount, selectStatus } from '@slices/counterSlice';
+import { useAppDispatch, useAppSelector } from '#hooks/AppHooks';
+import { decrement, increment, incrementByAmount, selectStatus } from '#slices/counterSlice';
 import React from 'react';
 import {SafeAreaView, TouchableOpacity, View, Text} from 'react-native';
 

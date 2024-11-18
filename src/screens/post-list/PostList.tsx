@@ -8,9 +8,9 @@ import {
 } from 'react-native';
 import {nanoid} from '@reduxjs/toolkit';
 import { useNavigation } from '@react-navigation/native';
-import { useAppDispatch, useAppSelector } from '@hooks/AppHooks';
-import { postAdded, selectPostById } from '@slices/postSlice';
-import { NAV } from '@constants/NAV';
+import { useAppDispatch, useAppSelector } from '#hooks/AppHooks';
+import { postAdded, selectPostById } from '#slices/postSlice';
+import { NAV } from '#constants/NAV';
 
 export const PostsList = () => {
   // Select the `state.posts` value from the store into the component

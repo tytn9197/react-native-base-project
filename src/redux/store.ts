@@ -1,8 +1,8 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
-import usersSlice from '@screens/users/userSlice'
-import counterSlice from '@slices/counterSlice'
-import loginSlice from '@slices/loginSlice'
-import postSlice from '@slices/postSlice'
+import usersSlice from '#screens/users/userSlice'
+import counterSlice from '#slices/counterSlice'
+import loginSlice from '#slices/loginSlice'
+import postSlice from '#slices/postSlice'
 
 
 export const store = configureStore({

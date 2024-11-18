@@ -1,4 +1,4 @@
-import { PostDetailsProps, PostDetailsScreenNavigationProp } from '@navigators/RootNavigator';
+import { PostDetailsProps, PostDetailsScreenNavigationProp } from '#navigators/RootNavigator';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';

@@ -1,4 +1,4 @@
-import {useAppSelector} from '@hooks/AppHooks';
+import {useAppSelector} from '#hooks/AppHooks';
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
 

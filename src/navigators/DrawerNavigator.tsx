@@ -1,5 +1,5 @@
 import React from 'react';
-import {NAV} from '@constants/NAV';
+import {NAV} from '#constants/NAV';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -8,9 +8,9 @@ import {
   DrawerContentComponentProps,
 } from '@react-navigation/drawer';
 import {Text} from 'react-native';
-import PostNavigator from '@navigators/PostNavigator';
-import {useAppDispatch} from '@hooks/AppHooks';
-import {switchValue} from '@slices/loginSlice';
+import PostNavigator from '#navigators/PostNavigator';
+import {useAppDispatch} from '#hooks/AppHooks';
+import {switchValue} from '#slices/loginSlice';
 import {useNavigation} from '@react-navigation/native';
 
 type DrawerParamList = {
