@@ -1,65 +1,25 @@
-import React from 'react'
-import {Pressable, PressableProps, StyleProp, ViewStyle} from 'react-native'
-import Animated, {
-  cancelAnimation,
-  runOnJS,
-  useAnimatedStyle,
-  useReducedMotion,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated'
+import React from 'react';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-// import {isTouchDevice} from '#/lib/browser'
-// import {isNative} from '#/platform/detection'
+export type MyButtonProps = {
+  onPress?: () => void;
+  text: string;
+};
 
-// const DEFAULT_TARGET_SCALE = isNative || isTouchDevice ? 0.98 : 1
-const DEFAULT_TARGET_SCALE = 1
-
-const AnimatedPressable = Animated.createAnimatedComponent(Pressable)
-
-export function PressableScale({
-  targetScale = DEFAULT_TARGET_SCALE,
-  children,
-  style,
-  onPressIn,
-  onPressOut,
-  ...rest
-}: {
-  targetScale?: number
-  style?: StyleProp<ViewStyle>
-} & Exclude<PressableProps, 'onPressIn' | 'onPressOut' | 'style'>) {
-  const reducedMotion = useReducedMotion()
-
-  const scale = useSharedValue(1)
-
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{scale: scale.value}],
-  }))
-
+export const MyButton = ({ onPress, text }: MyButtonProps) => {
   return (
-    <AnimatedPressable
-      accessibilityRole="button"
-      onPressIn={e => {
-        'worklet'
-        if (onPressIn) {
-          runOnJS(onPressIn)(e)
-        }
-        cancelAnimation(scale)
-        scale.value = withTiming(targetScale, {duration: 100})
-      }}
-      onPressOut={e => {
-        'worklet'
-        if (onPressOut) {
-          runOnJS(onPressOut)(e)
-        }
-        cancelAnimation(scale)
-        scale.value = withTiming(1, {duration: 100})
-      }}
-      style={[!reducedMotion && animatedStyle, style]}
-      {...rest}>
-      {children}
-    </AnimatedPressable>
-  )
-}
+    <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.8}>
+      <Text style={styles.text}>{text}</Text>
+    </TouchableOpacity>
+  );
+};
 
-export default PressableScale
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: 'purple',
+    borderRadius: 8,
+  },
+  text: { color: 'white' },
+});
