@@ -12,13 +12,6 @@ const meta = {
   args: {
     text: 'Hello world',
   },
-  decorators: [
-    (Story) => (
-      <View style={{ padding: 16, alignItems: 'flex-start' }}>
-        <Story />
-      </View>
-    ),
-  ],
 } satisfies Meta<typeof MyButton>;
 
 export default meta;
