@@ -12,6 +12,11 @@ const meta = {
   args: {
     text: 'Hello world',
   },
+  parameters: {
+    notes: `
+      test Button story
+    `
+  }
 } satisfies Meta<typeof MyButton>;
 
 export default meta;
