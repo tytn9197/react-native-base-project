@@ -1,6 +1,7 @@
 import type {Preview} from '@storybook/react';
 import React from 'react';
 import {SafeAreaView} from 'react-native';
+import {withBackgrounds} from '@storybook/addon-ondevice-backgrounds'
 
 const preview: Preview = {
   parameters: {
@@ -10,6 +11,13 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    backgrounds: {
+      default: "plain",
+      values: [
+        {name:'dark', value: 'black'},
+        {name:'light', value: 'white'},
+      ]
+    }
   },
   decorators: [
     Story => (
@@ -18,6 +26,7 @@ const preview: Preview = {
         <Story />
       </SafeAreaView>
     ),
+    withBackgrounds
   ],
 };
 
