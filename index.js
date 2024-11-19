@@ -13,7 +13,7 @@ import {
 // This is the default configuration
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
-  strict: true, // Reanimated runs in strict mode by default
+  strict: false, // Reanimated runs in strict mode by default
 });
 
 let AppEntryPoint = App;
