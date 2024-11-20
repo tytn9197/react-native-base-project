@@ -41,3 +41,10 @@ export const DisabledButton: Story = {
     isDisable: true,
   },
 };
+
+export const StyledButton: Story = {
+  args: {
+    text: 'STYLED',
+    style: {margin: 50}
+  },
+};

@@ -4,7 +4,7 @@ export const ButtonStyles = createStyleSheet(theme => ({
   container: (isDisable: boolean) => ({
     paddingHorizontal: 20,
     paddingVertical: 11,
-    backgroundColor: isDisable? "#00000059" : "#7C5CF6",
+    backgroundColor: isDisable? theme.bgDisabledButton : "#7C5CF6",
     borderRadius: 10,
     flexShrink: 1
   }),
