@@ -28,9 +28,9 @@ const preview: Preview = {
             style={{backgroundColor: 'red', margin: 10}}
             onPress={() => {
               if (UnistylesRuntime.themeName === 'light') {
-                UnistylesRuntime.setTheme('dark');
+                UnistylesRuntime.setTheme('dark' as never);
               } else {
-                UnistylesRuntime.setTheme('light');
+                UnistylesRuntime.setTheme('light' as never);
               }
               setIsDark(prev => !prev);
             }}>
