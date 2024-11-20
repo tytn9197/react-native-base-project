@@ -1,28 +1,14 @@
 import React from 'react';
-import {TouchableOpacity, Text, StyleSheet} from 'react-native';
-
-export type MyButtonProps = {
-  onPress?: () => void;
-  text: string;
-};
+import {TouchableOpacity, Text} from 'react-native';
+import {ButtonStyles} from './styles';
+import {useStyles} from 'react-native-unistyles';
+import {MyButtonProps} from './types';
 
 export const MyButton = ({onPress, text}: MyButtonProps) => {
+  const {styles} = useStyles(ButtonStyles);
   return (
-    <TouchableOpacity
-      className="flexShrink-1 bg-yellow-500 p-2 pt-4"
-      onPress={onPress}
-      activeOpacity={0.8}>
+    <TouchableOpacity onPress={onPress} activeOpacity={0.8}>
       <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: 'purple',
-    borderRadius: 8,
-  },
-  text: {color: 'white'},
-});

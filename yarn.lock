@@ -7239,6 +7239,11 @@ react-native-tab-view@^4.0.1:
   dependencies:
     use-latest-callback "^0.2.1"
 
+react-native-unistyles@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/react-native-unistyles/-/react-native-unistyles-2.12.0.tgz#15c795643d848fc7c349ee6716acb23141155327"
+  integrity sha512-MUvqsnx/bONoNRsIZobPK1WOWeVRYGPn2geBjW5zeZNklsoHIJrb3UqYZZO6HI+zbL0LC5bw30jBmeLwL0R4zA==
+
 react-native-url-polyfill@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-native-url-polyfill/-/react-native-url-polyfill-2.0.0.tgz#db714520a2985cff1d50ab2e66279b9f91ffd589"
