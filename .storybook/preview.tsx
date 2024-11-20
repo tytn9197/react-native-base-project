@@ -1,7 +1,6 @@
 import type {Preview} from '@storybook/react';
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
-import {withBackgrounds} from '@storybook/addon-ondevice-backgrounds';
 import {UnistylesRuntime} from 'react-native-unistyles';
 
 const preview: Preview = {
@@ -12,18 +11,19 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-    backgrounds: {
-      default: 'light',
-      values: [
-        {name: 'dark', value: 'black'},
-        {name: 'light', value: 'white'},
-      ],
-    },
   },
   decorators: [
     Story => {
+      const [isDark, setIsDark] = useState(
+        UnistylesRuntime.themeName === 'dark',
+      );
       return (
-        <SafeAreaView style={{flex: 1, padding: 20}}>
+        <SafeAreaView
+          style={{
+            flex: 1,
+            padding: 20,
+            backgroundColor: isDark ? 'black' : 'white',
+          }}>
           <TouchableOpacity
             style={{backgroundColor: 'red', margin: 10}}
             onPress={() => {
@@ -32,6 +32,7 @@ const preview: Preview = {
               } else {
                 UnistylesRuntime.setTheme('light');
               }
+              setIsDark(prev => !prev);
             }}>
             <Text>
               Change to{' '}
@@ -44,7 +45,6 @@ const preview: Preview = {
         </SafeAreaView>
       );
     },
-    withBackgrounds,
   ],
 };
 
