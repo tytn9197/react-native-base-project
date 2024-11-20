@@ -4,11 +4,15 @@ import {ButtonStyles} from './styles';
 import {useStyles} from 'react-native-unistyles';
 import {MyButtonProps} from './types';
 
-export const MyButton = ({onPress, text}: MyButtonProps) => {
+export const MyButton = ({onPress, text, isDisable}: MyButtonProps) => {
   const {styles} = useStyles(ButtonStyles);
   return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.8}>
-      <Text style={styles.text}>{text}</Text>
+    <TouchableOpacity
+      style={styles.container(!!isDisable)}
+      onPress={onPress}
+      activeOpacity={0.6}
+      disabled={isDisable}>
+      <Text numberOfLines={1} style={styles.text(!!isDisable)}>{text}</Text>
     </TouchableOpacity>
   );
 };
