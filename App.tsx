@@ -19,7 +19,7 @@ import {UnistylesRegistry} from 'react-native-unistyles';
 
 const light = {
   bgDisabledButton: '#00000059',
-  txtDisabledButton: '##FFFFFF59',
+  txtDisabledButton: '#FFFFFF59',
 };
 const dark = {
   bgDisabledButton: '#FFFFFF1A',

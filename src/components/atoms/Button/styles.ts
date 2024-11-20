@@ -9,7 +9,7 @@ export const ButtonStyles = createStyleSheet(theme => ({
     flexShrink: 1
   }),
   text: (isDisable: boolean) => ({
-    color: isDisable? '#FFFFFF59' : 'white',
+    color: isDisable? theme.txtDisabledButton : 'white',
     fontSize: 14,
     flexShrink: 1
   }),
