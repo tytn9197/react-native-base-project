@@ -3,7 +3,6 @@ const {
   wrapWithReanimatedMetroConfig,
 } = require('react-native-reanimated/metro-config');
 const withStorybook = require('@storybook/react-native/metro/withStorybook');
-const {withNativeWind} = require('nativewind/metro');
 
 const defaultConfig = getDefaultConfig(__dirname);
 const {assetExts, sourceExts} = defaultConfig.resolver;
@@ -20,8 +19,4 @@ const config = {
   },
 };
 
-module.exports = withStorybook(
-  wrapWithReanimatedMetroConfig(
-    withNativeWind(mergeConfig(defaultConfig, config), {input: './global.css'}),
-  ),
-);
+module.exports = withStorybook(wrapWithReanimatedMetroConfig(mergeConfig(defaultConfig, config)));

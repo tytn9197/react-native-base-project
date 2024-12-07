@@ -14,7 +14,6 @@ import {Provider} from 'react-redux';
 import {store} from '#redux/store';
 import {useColorScheme} from 'react-native';
 import RootNavigator from '#navigators/RootNavigator';
-import './global.css';
 import {UnistylesRegistry} from 'react-native-unistyles';
 
 const light = {
